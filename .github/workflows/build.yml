@@ -31,7 +31,7 @@ jobs:
         godot --headless --export-release "Windows Desktop" ../builds/windows/TowerDefense.exe
     
     - name: Upload Windows Build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: windows-build
         path: builds/windows/
@@ -55,7 +55,7 @@ jobs:
         godot --headless --export-release "Linux/X11" ../builds/linux/TowerDefense.x86_64
     
     - name: Upload Linux Build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: linux-build
         path: builds/linux/
@@ -79,7 +79,7 @@ jobs:
         godot --headless --export-release "Web" ../builds/web/index.html
     
     - name: Upload Web Build
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: web-build
         path: builds/web/
