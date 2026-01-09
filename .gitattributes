@@ -1,0 +1,50 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# C# files
+*.cs text diff=csharp
+
+# GDScript files
+*.gd text
+
+# Scene and resource files
+*.tscn text
+*.tres text
+*.godot text
+
+# Config files
+*.cfg text
+*.json text
+*.yml text
+*.yaml text
+
+# Documentation
+*.md text
+*.txt text
+
+# Graphics
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text
+
+# Audio
+*.wav binary
+*.ogg binary
+*.mp3 binary
+
+# Models
+*.obj text
+*.fbx binary
+*.gltf text
+*.glb binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+
+# Binary files
+*.dll binary
+*.so binary
+*.dylib binary
+*.exe binary

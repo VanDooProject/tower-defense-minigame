@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr7kbm2w8x9pd"]
+
+[ext_resource type="Script" path="res://scripts/SlowerTower.cs" id="1"]
+
+[node name="SlowerTower" type="Node3D"]
+script = ExtResource("1")
+Range = 10.0
+FireRate = 0.5
+Cost = 150
+SlowAmount = 0.5
+SlowDuration = 3.0

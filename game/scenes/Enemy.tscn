@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3k8vm5nq7w2p"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1")
+MaxHealth = 100
+MoveSpeed = 3.0
+Damage = 10
+Bounty = 50

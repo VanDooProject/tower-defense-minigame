@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxw8hnm5vt7ke"]
+
+[ext_resource type="Script" path="res://scripts/ShooterTower.cs" id="1"]
+
+[node name="ShooterTower" type="Node3D"]
+script = ExtResource("1")
+Range = 10.0
+FireRate = 1.0
+Cost = 100
