@@ -23,6 +23,7 @@ bin/
 # Build artifacts
 builds/
 exports/
+export_presets.cfg
 
 # OS specific
 .DS_Store

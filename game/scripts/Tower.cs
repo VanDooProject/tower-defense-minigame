@@ -36,6 +36,7 @@ namespace TowerDefense.Towers
         
         public override void _Ready()
         {
+            AddToGroup("towers");
             CreateOwnershipRing();
             UpdateOwnershipColor();
         }

@@ -3,6 +3,8 @@ using TowerDefense.Core;
 using TowerDefense.Map;
 using TowerDefense.Enemies;
 using TowerDefense.Towers;
+using TowerDefense.Player;
+using TowerDefense.UI;
 
 namespace TowerDefense
 {
@@ -15,6 +17,9 @@ namespace TowerDefense
         private GameStateManager _gameStateManager;
         private MapGenerator _mapGenerator;
         private WaveManager _waveManager;
+        private PlayerManager _playerManager;
+        private TowerPlacer _towerPlacer;
+        private GameHUD _gameHUD;
         private Camera3D _camera;
         private int _castleHealth = 100;
         
@@ -40,6 +45,9 @@ namespace TowerDefense
             _gameStateManager = GetNode<GameStateManager>("GameStateManager");
             _mapGenerator = GetNode<MapGenerator>("MapGenerator");
             _waveManager = GetNode<WaveManager>("WaveManager");
+            _playerManager = GetNode<PlayerManager>("PlayerManager");
+            _towerPlacer = GetNode<TowerPlacer>("TowerPlacer");
+            _gameHUD = GetNode<GameHUD>("GameHUD");
         }
         
         private void SetupCamera()
@@ -62,12 +70,17 @@ namespace TowerDefense
             
             _networkManager.PlayerConnected += OnPlayerConnected;
             _networkManager.PlayerDisconnected += OnPlayerDisconnected;
+            
+            CastleHealthChanged += _gameHUD.UpdateHealth;
         }
         
         private void InitializeGame()
         {
             // Generate map
             _mapGenerator.GenerateMap(MapSeed);
+            
+            // Initialize player
+            _playerManager.Initialize(0);
             
             // Start game for single player (can be extended for multiplayer)
             _gameStateManager.InitializeGame(1);
@@ -76,7 +89,9 @@ namespace TowerDefense
         public void StartGame(int playerCount)
         {
             _castleHealth = 100;
+            _playerManager.Initialize(0);
             _gameStateManager.InitializeGame(playerCount);
+            EmitSignal(SignalName.CastleHealthChanged, _castleHealth);
         }
         
         private void OnWaveStarted(int waveNumber)
@@ -89,6 +104,7 @@ namespace TowerDefense
         private void OnWaveCompleted(int waveNumber)
         {
             GD.Print($"Game: Wave {waveNumber} completed");
+            _playerManager.OnWaveCompleted();
         }
         
         private void OnWaveSystemCompleted()

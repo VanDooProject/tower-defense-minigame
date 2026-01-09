@@ -41,7 +41,7 @@ namespace TowerDefense.Enemies
             
             if (EnemyScene == null)
             {
-                GD.PrintErr("Enemy scene not set in WaveManager");
+                EnemyScene = GD.Load<PackedScene>("res://scenes/Enemy.tscn");
             }
         }
         
