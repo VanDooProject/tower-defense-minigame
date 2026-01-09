@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dj6yvqp8dn3wc"]
+
+[ext_resource type="Script" path="res://scripts/GameController.cs" id="1"]
+[ext_resource type="Script" path="res://scripts/NetworkManager.cs" id="2"]
+[ext_resource type="Script" path="res://scripts/GameStateManager.cs" id="3"]
+[ext_resource type="Script" path="res://scripts/MapGenerator.cs" id="4"]
+[ext_resource type="Script" path="res://scripts/WaveManager.cs" id="5"]
+[ext_resource type="Script" path="res://scripts/PlayerManager.cs" id="6"]
+[ext_resource type="Script" path="res://scripts/TowerPlacer.cs" id="7"]
+[ext_resource type="Script" path="res://scripts/GameHUD.cs" id="8"]
+
+[node name="GameController" type="Node"]
+script = ExtResource("1")
+MapSeed = 12345
+
+[node name="NetworkManager" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="GameStateManager" type="Node" parent="."]
+script = ExtResource("3")
+MaxWaves = 10
+
+[node name="MapGenerator" type="Node3D" parent="."]
+script = ExtResource("4")
+MapSize = 50
+NumGates = 4
+MapSeed = 12345
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("5")
+SpawnInterval = 1.0
+BaseEnemiesPerWave = 5
+
+[node name="PlayerManager" type="Node" parent="."]
+script = ExtResource("6")
+StartingGold = 500
+GoldPerWave = 200
+
+[node name="TowerPlacer" type="Node3D" parent="."]
+script = ExtResource("7")
+MinDistanceFromCastle = 10.0
+MinDistanceBetweenTowers = 3.0
+
+[node name="GameHUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 40, 30)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 20, 0)
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]

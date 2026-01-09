@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5jm3p8qr4wvn"]
+
+[ext_resource type="Script" path="res://scripts/SplashTower.cs" id="1"]
+
+[node name="SplashTower" type="Node3D"]
+script = ExtResource("1")
+Range = 10.0
+FireRate = 0.3
+Cost = 200
+SplashRadius = 5.0
+Damage = 15
