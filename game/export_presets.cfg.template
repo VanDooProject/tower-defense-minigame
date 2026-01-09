@@ -1,0 +1,31 @@
+# Export Presets Template
+# Copy this file to export_presets.cfg and configure for your system
+# This file is in .gitignore to avoid committing local paths
+
+# Windows Desktop Export
+[preset.0]
+name="Windows Desktop"
+platform="Windows Desktop"
+runnable=true
+export_path="./exports/windows/TowerDefense.exe"
+
+# Linux/X11 Export
+[preset.1]
+name="Linux/X11"
+platform="Linux/X11"
+runnable=true
+export_path="./exports/linux/TowerDefense.x86_64"
+
+# Web Export
+[preset.2]
+name="Web"
+platform="Web"
+runnable=true
+export_path="./exports/web/index.html"
+
+# To use:
+# 1. Copy this file to export_presets.cfg
+# 2. Open project in Godot
+# 3. Go to Project → Export
+# 4. Configure export templates for each platform
+# 5. Adjust settings as needed
